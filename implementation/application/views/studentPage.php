@@ -4,22 +4,27 @@
     <title>Login Page</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-   
-	
-	<style>
-	
+ <!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+-->
+
+  <!--  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">-->
+
+    <style type="text/css">
+
+
+
 	.newheader{
-    position: fixed;
-    /* display: none;*/
-    background-color: Teal;
-    height: 60px;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    /*z-index: 10000;*/
+        position: fixed;
+        /* display: none;*/
+        background-color: Teal;
+        height: 60px;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        z-index: 1;
+        /*z-index: 10000;*/
 
 }
 
@@ -40,6 +45,7 @@
 /*	background-image :url("assignments.jpg"); */
 	background-size: 100% 100%;
 	display: table;
+
 
 }
 .main{
@@ -429,7 +435,10 @@
            Design pattern semister 5
        </p>
    </div>
-   
+   <div>
+       <br><br>
+
+   </div>
    
    
    

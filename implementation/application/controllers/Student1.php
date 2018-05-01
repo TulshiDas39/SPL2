@@ -16,9 +16,44 @@ class Student1 extends CI_Controller {
     public function index()
     {
         $id = 5;
-        $this->load_groups($id);
+       // $this->load_groups($id);
+        $this->load->database();
+        $this->load->model('MyModel');
+      //  $this->enter_group(6);
 
-     //   $this->load->database();
+
+        $group_id = 6;
+
+
+
+
+        $pageNo = $this->input->get("page");
+
+        if(!empty($pageNo)){
+          /*  echo "<script type='text/javascript'>alert('submitted successfully!')</script>";*/
+           /* echo "<script type='text/javascript'>alert(page)</script>";*/
+            $data = $this->MyModel->getAssignments($group_id,$pageNo);
+            $result = $this->load->view('data4', $data);
+            echo json_encode($result);
+
+        }
+
+        else{
+
+            $this->load->view('studentPage');
+            $data['posts'] = $this->MyModel->getAssignments($group_id,0);
+            $this->load->view('myPost1', $data);
+
+        }
+        
+
+
+
+
+
+
+
+        //   $this->load->database();
         //$count = $this->db->get_where('student_group', array('id' => $id), $limit, $offset)->num_rows();
       //  $count = $this->db->get('posts')->num_rows();
       //  $count = $this->db->get('student_group')->num_rows();
@@ -52,14 +87,34 @@ class Student1 extends CI_Controller {
         //$data['groups'] = $this->MyModel->getClasses($user_id);
         $data = $this->MyModel->getClasses($user_id);
         $this->load->view('view_classes',$data);
-
     }
 
-    function enter_group($group_id, $user_id){
-        echo $user_id." ".$group_id;
+    function enter_group($group_id){
+        /*echo $user_id." ".$group_id;
         $this->load->view('studentPage');
+        echo "entered";*/
 
-        echo "entered";
+
+
+
+
+
+
+        $pageNo = $this->input->get("page");
+        if(!empty($pageNo)){
+            echo "<script> alert(page);</script>";
+            $data = $this->MyModel->getAssignments($group_id,$pageNo);
+            $result = $this->load->view('data4', $data);
+            echo json_encode($result);
+
+        }
+
+        else{
+            $this->load->view('studentPage');
+            $data['posts'] = $this->MyModel->getAssignments($group_id,0);
+            $this->load->view('myPost1', $data);
+
+        }
     }
 
 

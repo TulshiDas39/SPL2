@@ -26,9 +26,9 @@ class Student extends CI_Controller {
 
 
             $start = ceil($this->input->get("page") * $this->perPage);
-            $query = $this->db->limit($start, $this->perPage)->get("posts");
+            $query = $this->db->limit($start, $this->perPage)->get("assignment");
             $data['posts'] = $query->result();
-            $result = $this->load->view('data', $data);
+            $result = $this->load->view('data2', $data);
             echo json_encode($result);
        
 

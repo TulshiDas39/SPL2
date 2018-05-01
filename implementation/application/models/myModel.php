@@ -7,6 +7,8 @@ var $title   = '';
 var $content = '';
 var $date    = '';
 
+private   $perPage = 0;
+
 function __construct()
 {
 // Call the Model constructor
@@ -42,29 +44,46 @@ function __construct()
         return $data;
     }
 
-/*function get_last_ten_entries()
-{
-$query = $this->db->get('entries', 10);
-return $query->result();
-}
+    function getAssignments($group_id,$start){
 
-function insert_entry()
-{
-$this->title   = $_POST['title']; // please read the below note
-$this->content = $_POST['content'];
-$this->date    = time();
+        $sql = "SELECT posts.* ,user.firstName, user.lastName FROM posts,user  WHERE (posts.user_id = user.user_id AND group_id = '".$group_id."') ORDER BY date DESC  LIMIT 5 OFFSET ".$start." ";
+        $query = $this->db->query($sql);
+        $data['posts'] = $query->result();
+      /*  echo "<script  type='text/javascript'> alert($start);</script>"; */
+        return $data;
 
-$this->db->insert('entries', $this);
-}
+    }
+    function get($target,$table,$key,$keyVal)
+    {
+        $sql = "select ".$target." from ".$table." where ".$key." = ".$keyVal." ";
+        $query = $this->db->query($sql);
+        $data = $query->result();
+        return $data;
+    }
 
-function update_entry()
-{
-$this->title   = $_POST['title'];
-$this->content = $_POST['content'];
-$this->date    = time();
+    /*function get_last_ten_entries()
+    {
+    $query = $this->db->get('entries', 10);
+    return $query->result();
+    }
 
-$this->db->update('entries', $this, array('id' => $_POST['id']));
-}*/
+    function insert_entry()
+    {
+    $this->title   = $_POST['title']; // please read the below note
+    $this->content = $_POST['content'];
+    $this->date    = time();
+
+    $this->db->insert('entries', $this);
+    }
+
+    function update_entry()
+    {
+    $this->title   = $_POST['title'];
+    $this->content = $_POST['content'];
+    $this->date    = time();
+
+    $this->db->update('entries', $this, array('id' => $_POST['id']));
+    }*/
 
 }
 
