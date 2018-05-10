@@ -1,0 +1,4 @@
+1. ALTER TABLE users ADD grade_id SMALLINT UNSIGNED NOT NULL DEFAULT 0;
+ALTER TABLE users ADD CONSTRAINT fk_grade_id FOREIGN KEY (grade_id) REFERENCES grades(id);
+2.ALTER TABLE assignment add column user_id int;
+ALTER TABLE assignment ADD CONSTRAINT FK_userid FOREIGN KEY (user_id) REFERENCES user(user_id);
