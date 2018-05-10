@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,14 +8,22 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css" rel="stylesheet"/>
+
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js" ></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js" type="text/javascript" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
     <link rel="stylesheet" href = "/ci/ASM/teacherPage.css">
+
 
 </head>
 <body>
- <div class="scroller">
      <div class="newheader">
-         <button class="btn success btn-lg" id = "techBtn" title="Assignment Menu">
-             <span class="glyphicon glyphicon-menu-hamburger" id="menubar1"></span>
+         <button class="btn success btn-lg" id = "techBtn">
+             <span class="glyphicon glyphicon-menu-hamburger" id="menubar1" data-toggle="tooltip2" data-original-title="Assignment menu"></span>
 
          </button>
          <!--  <span class="written">Assignment Management</span>-->
@@ -36,17 +45,85 @@
              </div>
 
          </nav>
-         <a href="#">
-             <span class="notification " ><span class=" glyphicon glyphicon-bell bell" data-toggle="tooltip" data-original-title="Notifications"></span></span>
+         <!--<div class="dropdown">
+         <button class="btn btn-circle dropdown-toggle" id="notification_button" type="button" data-toggle="dropdown">
+             <span class="notification " ><span class=" glyphicon glyphicon-bell bell" data-toggle="tooltip" data-original-title="Notifications"></span></span></button>
+             <ul class="dropdown-menu">
+                 <li><a class="dropdown-item" href="#">Action</a></li>
+                 <a class="dropdown-item" href="#">Another action</a>
+                 <a class="dropdown-item" href="#">Something else here</a>
+             </ul>
 
-         </a>
+         </div>-->
+         <div class="dropdown1">
+             <button class="btn btn-circle dropdown-toggle" id="notification_button" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 <span class="notification " ><span class=" glyphicon glyphicon-bell bell" data-toggle="tooltip" data-original-title="Notifications">
+                         <?php
+                         $query= $this->db
+                             ->where('status',1)
+                             ->order_by('date','desc')
+                             ->get('notification');
+                         if($query->num_rows()>0) {
+                             ?>
+                             <span class="badge badge-light" id="notifction_count"><?php echo $query->num_rows()?></span>
+                             <?php
+                         }
+                         ?>
+               </span></span></button>
+             <div class="dropdown-menu" aria-labelledby="notification_button" id="menu_div">
+
+                 <?php
+                 $query= $this->db
+                     ->order_by('date','desc')
+                     ->get('notification');
+                 if($query->num_rows()>0) {
+                     foreach ($query->result_array() as $q) {
+                         ?>
+
+                         <li><a style="
+                             <?php
+                             if($q['status']==1)
+                             {
+                                 echo "font-weight:bold";
+                             }
+                             ?>
+
+                                     "class="dropdown-item" href="<?php echo base_url() ?>View/relate?id=<?php echo $q['notification_id']; ?>">
+                                 <small><i><?php echo date('F j,Y, g:i a',strtotime($q['date']))?></i></small><br/>
+                                 <?php echo $q['name']." post an ".$q['message']."." ?>
+                             </a></li>
+                         <div class="dropdown-divider"></div>
+                         <?php
+                     }
+                 } else
+                 {
+                     echo "No Notifications";
+                 }
+                 ?>
+
+             </div>
+         </div>
          <button class="btn success btn-lg " id="techBtn1">
 
-             <span class=" glyphicon glyphicon-plus-sign course " data-toggle="tooltip1" data-original-title="Course Releated"></span>
+             <span class=" glyphicon glyphicon-plus-sign course " data-toggle="tooltip1" data-original-title="Create"></span>
 
          </button>
-
-   </div>
+        <!-- <div class="dropdown" style="">
+             <button id = "user_button" class="btn btn-circle user-button" style=""><span class="glyphicon glyphicon-user" id="user"></span> </button>
+             <div class="dropdown-menu" id="myDropdown">
+                 <a class="dropdown-item" href="#">Setting</a>
+                 <a class="dropdown-item" href="Login/log_out">Log out</a>
+             </div>
+         </div>-->
+         <div class="dropdown">
+             <button class="btn btn-circle dropdown-toggle" type="button" data-toggle="dropdown" id="user_button"><span class="glyphicon glyphicon-user" id="user"></span> </button>
+                 <!--<span class="caret"></span></button>-->
+             <ul class="dropdown-menu">
+                 <li><a href="#">Setting</a></li>
+                 <li><a href="Login/log_out">Log out</a></li>
+             </ul>
+         </div>
+     </div>
      <div class="container">
          <div class="row">
              <div class="col-xs-12">
@@ -63,7 +140,7 @@
                                      </a>
                                  </div>
                                  <div>
-                                     <a href="#">
+                                     <a href="Create_calendar" id="date1">
                                          <span class="glyphicon glyphicon-calendar calendar" style="font-size: 15px;" >&nbsp;Calender</span>
                                      </a>
                                  </div>
@@ -92,23 +169,171 @@
                      <div class="modal-dialog" id="course-menu">
                          <div class="modal-content" id="course-content">
 
-                             <a href="#">
+                             <button class="btn success btn-lg" id="post_Button">
                                  <span class="glyphicon glyphicon-comment" id="announce">
                                      <span id="check-post">Create post</span>
                                  </span>
-                             </a>
-                             <a href="#">
+                             </button>
+                             <button class="btn success btn-lg" id="assignment_Button">
                                    <span class= "glyphicon glyphicon-list-alt" id="assignment">
                                         <span class="checker">Create assignment</span>
                                    </span>
 
-                             </a>
+                             </button>
                          </div>
                      </div>
                  </div>
              </div>
          </div>
      </div>
+     <div class="container">
+         <!--<form action="Upload" method="post" enctype="multipart/form-data" id="assign_form">-->
+         <div class="row">
+             <div class="col-xs-12">
+                 <!-- <button class="btn btn-primary btn-sm" >Login</button>-->
+                 <div class="modal" data-keyboard="false" id=CRID tabindex="-1">
+                     <div class="modal-dialog" id="post_modal">
+                         <div class="modal-content" id="post_content">
+                             <div class="modal-header" id="post_header">
+                                 <button  class="close" data-dismiss="modal" id="cross">&times;</button>
+                                 <span class= "glyphicon glyphicon-comment" id="comment">
+                                        <span class="check_comment">post</span>
+                                   </span>
+
+                             </div>
+                             <div class="modal-body">
+
+                                 <textarea typeof="tesxt" placeholder="Share topic" id="topic" name="topic"></textarea>
+                                 <textarea type="text" placeholder= "Share post" id="share" name="share_post" ></textarea>
+                                <!-- <span id="file_text" name="userFile1">No flie choosen yet
+
+                                </span>-->
+                             </div>
+                             <div class="modal-footer">
+                                 <!--<input type="file" id="real_file1" name="userFile1" size="20" hidden/>-->
+                                <button class="btn success btn-lg" id="file_button" title="Attach file">
+                                    <span class="glyphicon  glyphicon-paperclip" id="paper_clip"></span>
+
+                                </button>
+                                 <button class="btn success btn-lg" id="link_button" title="Share link">
+
+                                     <span class="glyphicon glyphicon-link" id="link"></span>
+                                 </button>
+                                 <button class="btn success btn-lg" id="delete_button">
+                                     <span class="glyphicon glyphicon-trash" id="trash_button"></span>
+                                 </button>
+                                 <button type="submit" class="btn btn-primary" id="post_btn">Post</button>
+
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+        <!-- </form>-->
+     </div>
+     <div class="container">
+        <form action="Upload" method="post" enctype="multipart/form-data" id="assign_form">
+         <div class="row">
+             <div class="col-xs-12">
+                 <div class="modal" data-keyboard="false" id=ASID tabindex="-1">
+                     <div class="modal-dialog" id="assign_modal">
+                         <div class="modal-content" id="assign_content">
+
+                             <div class="modal-header" id="assign_header">
+                                 <button  class="close" data-dismiss="modal" id="cross">&times;</button>
+
+                                 <span class= "glyphicon glyphicon-list-alt" id="list">
+                                        <span class="check_list">Assignment</span>
+                                   </span>
+                             </div>
+                             <div class="modal-body">
+
+
+                                 <textarea type="text" placeholder="Title" id="topic" name="title" required></textarea>
+                                 <textarea type="text" placeholder= "Instructions" id="share" name="instructions" required></textarea>
+                                    <label id="date_label">Submission Date:</label>
+                                   <!-- <input  class="sub_date" type="date" name="date"  required>-->
+                                 <!--<div class="container">
+                                     <input type="text" class="datepicker" name="date" >
+                                 </div>-->
+                                 <div class="container">
+                                     <div class="row">
+                                         <div class='col-sm-6'>
+                                             <div class="form-group">
+                                                 <div class='input-group date' id='datetimepicker1'>
+
+                                                     <input type='text' class="form-control" required name="date" />
+                                                        <span class="input-group-addon">
+                                                             <span class="glyphicon glyphicon-calendar"></span>
+                                                        </span>
+                                                 </div>
+                                             </div>
+                                         </div>
+
+                                     </div>
+                                 </div>
+                                 <label id="time_label">Submission Time:</label>
+                                 <div class="container">
+                                     <div class="row">
+                                         <div class='col-sm-6'>
+                                             <div class="form-group">
+                                                 <div class='input-group date' id='datetimepicker3'>
+                                                     <input type='text' class="form-control" required name="time"/>
+                                                     <span class="input-group-addon">
+                                                         <span class="glyphicon glyphicon-time">
+
+                                                         </span>
+                                                     </span>
+                                                 </div>
+                                             </div>
+                                         </div>
+
+                                     </div>
+                                 </div>
+                                <!-- <input type="time" id="sub_time" name="time" required>-->
+                                <span id="file_text" name="userFile1">No flie choosen yet
+
+                                </span>
+                               <!--<input id="file_text" name="userFile1" value="">-->
+
+
+
+                             </div>
+                             <div class="modal-footer">
+
+                                 <input type="file" id="real_file" name="userFile" size="20" hidden/>
+
+                                 <button class="btn success btn-lg" id="file_button1" title="Attach file" disabled>
+                                     <!--<input type="button" id="file_button1" title="Attach here" hidden/>-->
+                                     <span class="glyphicon  glyphicon-paperclip" id="paper_clip1"></span>
+
+                                <!-- </button>-->
+                                 <button class="btn success btn-lg" id="link_button1" title="Share link">
+
+                                     <span class="glyphicon glyphicon-link" id="link1"></span>
+                                 </button>
+                                 <input type="submit" value="upload" id="upload_button" hidden/>
+
+                                 <button class="btn success btn-lg" id="delete_button1">
+                                     <span class="glyphicon glyphicon-trash" id="trash_button1"></span>
+                                 </button>
+                                 <button type="submit" class="btn btn-primary" id="post_btn1" name="assign">Assign</button>
+
+                             </div>
+
+                                 <div style="clear: both"></div>
+
+                            <!--</form>-->
+                             </div>
+
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </form>
+         </div>
+
    <div class="middle">
        <span class="course-name">
            Design pattern semister 5
@@ -120,7 +345,6 @@
       </div>
       <div class="right"></div>
   </div>
-   </div>
   <script>
       $(document).ready(function(){
           $('#techBtn').click(function(){
@@ -128,6 +352,29 @@
           });
       });
   </script>
+ <script>
+     $(document).ready(function(){
+         $('#post_Button').click(function(){
+             $('#menuid1').modal('hide');
+             $('#CRID').modal('show');
+         });
+     });
+ </script>
+ <script>
+     $(document).ready(function(){
+         $('#assignment_Button').click(function(){
+             $('#menuid1').modal('hide');
+             $('#ASID').modal('show');
+         });
+     });
+ </script>
+     <script type="text/javascript">
+         $(document).ready(function(){
+             $('[data-toggle="tooltip2"]').tooltip({
+                 placement : 'bottom'
+             });
+         });
+     </script>
    <script type="text/javascript">
        $(document).ready(function(){
            $('[data-toggle="tooltip"]').tooltip({
@@ -150,6 +397,104 @@
        });
    </script>
 
+ <script>
+     $(document).ready(function(){
+         $('#delete_button').click(function(){
+             $('#CRID').modal('hide');
 
+         });
+     });
+ </script>
+ <script>
+     $(document).ready(function(){
+         $('#delete_button1').click(function(){
+             $('#ASID').modal('hide');
+
+         });
+     });
+
+ </script>
+<script type="text/javascript">
+    const  realFileBtn=document.getElementById("real_file");
+    const  customBtn=document.getElementById("paper_clip1");
+    const  customText=document.getElementById("file_text");
+    customBtn.addEventListener("click",function () {
+            realFileBtn.click();
+    });
+    realFileBtn.addEventListener("change",function () {
+        if(realFileBtn.value)
+        {
+            customText.innerHTML=realFileBtn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
+        }
+    });
+
+</script>
+     <script type="text/javascript">
+         const  realFileBtn1=document.getElementById("upload_button");
+         const  customBtn1=document.getElementById("post_btn1");
+
+         customBtn1.addEventListener("click",function () {
+             realFileBtn1.click();
+         });
+
+
+     </script>
+     <script type="text/javascript">
+         $(function () {
+             $('#datetimepicker1').datetimepicker({
+                /* minView: 2,
+                 format: 'dd-mm-yyyy'*/
+                format:'L'
+
+
+             });
+         });
+     </script>
+     <script type="text/javascript">
+         $(function () {
+             $('#datetimepicker3').datetimepicker({
+                 format: 'LT'
+             });
+         });
+     </script>
+
+    <!--<script type="text/javascript">
+        $(document).ready(function () {
+            function load_unseen_notification(view='')
+            {
+                    $.ajax({
+                        url:"fetch.php",
+                        method:"POST",
+                        data:{view:view},
+                        dataType:"json",
+                        success:function (data) {
+                            $('.dropdown-menu').html(data.notification);
+                            if(data.unseen_notification>0)
+                            {
+                                $('#notifction_count').html(data.unseen_notification);
+                            }
+                        }
+                    })
+            }
+            load_unseen_notification();
+            $('#assign_form').on('submit',function (event) {
+
+
+                event.preventDefault();
+                var form_data=$(this).serialize();
+                $.ajax({
+                    url: "insert.php",
+                    method: "POST",
+                    data:form_data,
+                    success:function (data) {
+                        $('#assign_form')[0].reset();
+                        load_unseen_notification();
+
+                    }
+
+                })
+            });
+        });
+    </script>-->
 </body>
 </html>

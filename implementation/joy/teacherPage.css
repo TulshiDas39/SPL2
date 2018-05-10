@@ -1,11 +1,12 @@
 .newheader{
     position: fixed;
     /* display: none;*/
-    background-color: Indigo;
+    background-color: Teal;
     height: 60px;
     left: 0px;
     top: 0px;
     width: 100%;
+   /* border: 3px solid red;*/
     /*z-index: 10000;*/
 
 }
@@ -58,6 +59,7 @@
     width: 25px;
     top: 15px;
     left: 20px;
+    outline: none;
 
 }
 #menubar1
@@ -160,48 +162,83 @@
     top: 10px;
     left: 500px;
 }
+#notification_button
+{
+    position: absolute;
+    background: transparent;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+   /* top: 10px;*/
+    top: 0px;
+    /*right: 200px;*/
+    right: 60px;
+    bottom: 5px;
+
+    outline: none;
+}
+#notifction_count
+{
+    position: absolute;
+    color: white;
+    top:-10px;
+    left: 15px;
+    right: 0px;
+    font-size: small;
+    background:red;
+   /* height: 20px;*/
+    align-self: center;
+    width: 18px;
+    border-radius: 10px;
+    font-weight: 500;
+   /* border: 2px solid red;*/
+}
 .notification
 {
 
     position: absolute;
-    height: 25px;
-    width: 25px;
-    top: 20px;
-    right: 100px;
+    height: 30px;
+    width: 30px;
+    top: 4px;
+    left: 5px;
+    right:5px;
     background-color: white;
     border-radius: 50%;
-    font-size: 15px;
+    font-size: 20px;
 
 
 }
 .bell{
     /* border: 2px solid black;*/
-    position: relative;
+    position: absolute;
     display: inline-block;
-    font-size: 15px;
-    top:4px;
-    right: 2px;
-    bottom: 3px;
-    left: 4px;
+   /* color: #0000FF;*/
+    font-size: 20px;
+    top:5px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
 }
 #techBtn1
 {
     background: transparent;
     position: absolute;
-    height: 50px;
-    width: 60px;
-    top:5px;
+    height: 30px;
+    width: 30px;
+   /* border: 2px solid black;*/
+    top:15px;
     right: 300px;
     font-size: 0.6em;
+    outline: none;
 }
 .course
 {
     position: absolute;
-    top: 13px;
-    right: 5px;
+    top: 0px;
+    right: 0px;
     bottom: 0px;
     left: 0px;
-    font-size: 25px;
+    font-size: 30px;
     color:white ;
 
 }
@@ -223,9 +260,8 @@
 #announce
 {
     position: absolute;
-
-    top: 30px;
-    left: 10px;
+    top: 0px;
+    left: 0px;
     font-size: 25px;
 
 }
@@ -240,8 +276,8 @@
 #assignment
 {
     position: absolute;
-    top: 80px;
-    left: 10px;
+    top: 0px;
+    left: 0px;
     font-size: 25px;
 }
 .checker
@@ -265,5 +301,430 @@
     font-weight: 700;
     right: 40%;
 }
+#post_Button
+{
+    position: absolute;
+    background: transparent;
+    top: 30px;
+    left:10px;
+    height: 30px;
+    width: 150px;
+    outline: none;
+    /*border: 3px solid red;*/
+}
+#assignment_Button
+{
+    position: absolute;
+    background: transparent;
+    top: 80px;
+    left: 10px;
+    height: 30px;
+    width: 200px;
+    outline: none;
+}
+#post_modal
+{
+    position: fixed;
+    top: 0px;
+    left: 500px;
 
+    width: 40%;
+    height: 100%;
+    z-index: 10001;
+    overflow: auto;
+    overflow-y: auto;
+}
+#post_content
+{
+   height: 60%;
+}
+#assign_modal
+{
+    position: fixed;
+    top: 0px;
+    left: 500px;
+    width: 40%;
+    height: 100%;
+    z-index: 10001;
+    overflow: auto;
+    overflow-y: auto;
+}
+#assign_content
+{
+    height: 60%;
+}
+#post_header
+{
+    background-color: Teal;
+   /* border: 2px solid red;*/
+}
+#assign_header
+{
+    background-color: teal;
+}
+#cross
+{
+    color: white;
+    font-size: 30px;
+   /* border: 2px solid red;*/
+}
+#comment
+{
+    position: absolute;
+    top: 20px;
+    color: white;
+    font-size: 25px;
+}
+.check_comment {
+    position: fixed;
+    top: 14px;
+    left: 50px;
+    /* border: 2px solid black;*/
+    font-size: 20px;
+}
+#topic
+{
+    position: absolute;
+    top: 20px;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    flex-shrink: 1;
+    /* height: 168px;*/
+    width: 60%;
+    outline: 0;
+    border-width: 0 0 2px 0;
+    /*  border-color: blue;*/
+    background: transparent;
+    border-bottom: 2px solid teal;
+    z-index: 0;
+    overflow-y: visible;
+    overflow-x: hidden;
+}
+#share
+{
+    position: absolute;
+    top: 80px;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    flex-shrink: 1;
+   /* height: 168px;*/
+    width: 90%;
+    outline: 0;
+    border-width: 0 0 2px 0;
+    /*  border-color: blue;*/
+    background: transparent;
+    border-bottom: 2px solid teal;
+    z-index: 0;
+    overflow-y: visible;
+    overflow-x: hidden;
+
+
+}
+#file_button
+{
+
+    align-items: left;
+    background: transparent;
+    float: left;
+    height:40px;
+    width:40px;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+
+}
+#paper_clip
+{
+
+    position: absolute;
+    top:358px;
+    left: 20px;
+    font-size: 25px;
+    -webkit-transform:rotate(130deg);
+    -moz-transform:rotate(130deg);
+    -o-transform:rotate(130deg);
+    transform:rotate(135deg);
+}
+#link_button
+{
+
+    align-items: left;
+    background: transparent;
+    float: left;
+    height:40px;
+    width:40px;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+
+}
+#link
+{
+    position: absolute;
+    top:358px;
+    left: 65px;
+    font-size: 25px;
+    -webkit-transform:rotate(45deg);
+    -moz-transform:rotate(45deg);
+    -o-transform:rotate(45deg);
+    transform:rotate(45deg);
+}
+#delete_button
+{
+    height:40px;
+    background: transparent;
+    position: absolute;
+    top: 350px;
+    left: 415px;
+    /*border: 2px solid red;*/
+    width:40px;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+}
+#trash_button
+{
+    color: black;
+    float: right;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    font-size: 25px;
+    outline: none;
+}
+#list
+{
+    position: absolute;
+    top: 20px;
+    color: white;
+    font-size: 25px;
+}
+.check_list
+{
+    position: fixed;
+    top: 20px;
+    left: 50px;
+    /* border: 2px solid black;*/
+    font-size: 20px;
+}
+#datepicker
+{
+    width: 180px;
+    margin: 0px 20px 20px 20px;
+
+}
+#datepicker > span:hover
+{
+    cursor: pointer;
+}
+#date_div
+{
+   /* position: absolute;*/
+    height: 30px;
+    width: 300px;
+    /*border: 3px solid red;*/
+}
+#date_label
+{
+    position: absolute;
+    top: 150px;
+   /* border: 2px solid red;*/
+}
+.sub_date {
+    position: absolute;
+
+    top: 145px;
+    left: 140px;
+}
+#time_label
+{
+    position: absolute;
+    top: 190px;
+}
+#sub_time
+{
+    position: absolute;
+    top: 185px;
+    left: 140px;
+}
+#delete_button1
+{
+    height:40px;
+    background: transparent;
+    position: absolute;
+    top: 340px;
+    left: 415px;
+    /*border: 2px solid red;*/
+    width:40px;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+}
+#trash_button1
+{
+    color: black;
+    float: right;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    font-size: 25px;
+    outline: none;
+}
+#file_button1
+{
+    align-items: left;
+
+    background: transparent;
+    /*border: 3px solid red;*/
+
+    float: left;
+    height:40px;
+    width:40px;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+}
+#paper_clip1
+{
+    position: absolute;
+    top:345px;
+    left: 20px;
+    font-size: 25px;
+    -webkit-transform:rotate(130deg);
+    -moz-transform:rotate(130deg);
+    -o-transform:rotate(130deg);
+    transform:rotate(135deg);
+}
+#link_button1
+{
+    align-items: left;
+    background: transparent;
+    float: left;
+    height:40px;
+    width:40px;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+}
+#link1
+{
+    position: absolute;
+    top:350px;
+    left: 65px;
+    font-size: 25px;
+    -webkit-transform:rotate(45deg);
+    -moz-transform:rotate(45deg);
+    -o-transform:rotate(45deg);
+    transform:rotate(45deg);
+}
+#real_file
+{
+    /*border:3px solid red;*/
+   position: absolute;
+    left: 200px;
+    display: none;
+}
+#post_btn1
+{
+
+    position: absolute;
+    top: 340px;
+    left: 465px;
+    outline: none;
+
+}
+#file_text
+{
+    position: absolute;
+    top: 230px;
+}
+#upload_button
+{
+  /*border: 3px solid red;*/
+    float: left;
+    outline: none;
+  /*position: absolute;*/
+}
+#datetimepicker1{
+    /*border: 3px solid red;*/
+    position: absolute;
+    top: 125px;
+    left: 125px;
+    width: 250px;
+}
+#datetimepicker3
+{
+    position: absolute;
+    top:150px;
+    left: 125px;
+    width: 250px;
+
+}
+#user_button
+{
+    position:fixed;
+    background: transparent;
+    height: 40px;
+    width: 40px;
+    top:15px;
+    right:130px;
+    font-size: 25px;
+    outline: none;
+   /* border:3px solid red;*/
+}
+#user{
+    position: relative;
+    top: -5px;
+    right: -5px;
+    bottom: -5px;
+    left: -8px;
+}
+.dropdown {
+    position: absolute;
+    top: 5px;
+    right: 40px;
+    height: 50px;
+    width: 150px;
+    background: transparent;
+
+}
+.dropdown1
+{
+    position: absolute;
+   /* border: 3px solid red;*/
+    /*overflow: hidden;*/
+    top: 10px;
+    right: 170px;
+    height: 50px;
+    width: 150px;
+}
+/*#menu_div
+{
+    position: absolute;
+    right: 200px;
+    width: 300px;
+    border: 3px solid red;
+}*/
+/*#ndrop
+{
+    position: absolute;
+    top: 10px;
+    right: 200px;
+}*/
+
+/*
+#real_file1
+{
+    border:3px solid red;
+    position: absolute;
+    left: 200px;
+    !*display: none;*!
+}
+*/
 
