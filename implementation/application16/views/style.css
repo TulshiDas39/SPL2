@@ -1,0 +1,54 @@
+.header{
+	background: green;
+	height: 3em;
+	width: 100%;
+}
+.content{
+	background: #007bff;
+	height: 400px;
+	width: 100%;
+	background-image :url("assignments.jpg");
+	background-size: 100% 100%;
+	/*background-repeat:round ;*/
+	display: table;
+}
+#welcomeText{
+	text-align: center;
+	vertical-align: middle;
+	display: table-cell;
+	font-family: "Helvetica Neue ","Times New Roman","Century Gothic" ;
+	font-size: 3em;
+}
+.rHeader{
+	height: 100%;
+	font-family: "Times New Roman";
+	font-size: 3em;
+	/*background: #1b1e21;*/
+}
+
+.lHeader{
+	float: left;
+	height: 100%;
+	width: 60%;
+	display: table;
+	/*background: #4e4a4a;*/
+}
+#techBtn{
+	background: transparent;
+	vertical-align: top;
+	font-family: "Times New Roman";
+	font-size: 0.5em;
+}
+
+#learnBtn{
+	background: transparent;
+	vertical-align: top;
+	font-family: "Times New Roman";
+	font-size: 0.5em;
+}
+#tFooter{
+	font-family: "Century Gothic";
+	font-weight: bold;
+	font-size: 1.5em;
+	text-align: center;
+}
