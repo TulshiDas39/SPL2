@@ -1,0 +1,271 @@
+.newheader{
+    position: fixed;
+    /* display: none;*/
+    background-color: Teal;
+    height: 60px;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    /*z-index: 10000;*/
+
+}
+
+.middle{
+    /*  position: absolute;*/
+    background-image: url("/ci/ASM/world.jpg");
+    background-size:cover;
+    top: 61px;
+    /* left: 0px;*/
+    height: 300px;
+    width: 100%;
+    /* border: 3px solid red;*/
+
+}
+.main{
+    background-color: #245580;
+    height:300px;
+    width: 100%;
+    float: left;
+
+}
+.left
+{
+    background-color: #2cc36b;
+    height: 100%;
+    width: 20%;
+    float: left;
+}
+.right
+{
+    background-color: #5a0099;
+    width: 90%;
+    height: 100%;
+}
+
+.scroller
+{
+    /* border: 3px solid red;*/
+    position: absolute;
+    left: 0px;
+    width: 100%;
+
+}
+#techBtn
+{
+    position: absolute;
+    background: transparent;
+    height: 25px;
+    width: 25px;
+    top: 15px;
+    left: 20px;
+    outline: none;
+
+}
+#menubar1
+{
+    position: absolute;
+    /* border: 3px solid red;*/
+    color: white;
+    top: 0px;
+    left: 0px;
+    font-size: 20px;
+}
+#menu-modal{
+    /*border: 5px solid black;*/
+    position: fixed;
+    top: 0px;
+    left: 0px;
+
+    width: 25%;
+    height: 100%;
+    z-index: 10001;
+    overflow: auto;
+    overflow-y: auto;
+}
+#menu-content
+{
+    /* border: 3px solid black;*/
+    height: 100%;
+
+}
+.settings{
+    padding-top: 5px;
+    font-size: 15px;
+    color:blue;
+    padding-left: 10px;
+    font-weight: 500;
+    font-family: "Calibri";
+    float: left;
+    /* border: 1px solid black;*/
+}
+#settings-log{
+    font-size: 20px;
+    align-items: left;
+    top: 5px;
+    float: left;
+}
+.modal-header
+{
+    height: 15%;
+}
+.modal-body
+{
+    height: 70%;
+}
+.modal-footer
+{
+    height: 15%;
+}
+.calendar
+{
+    /* border: 3px solid black;*/
+    position: absolute;
+    top: 60px;
+}
+.link1{
+    position: absolute;
+    padding-top:20px ;
+    padding-left: 600px;
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+
+
+}
+.link2{
+    position: absolute;
+    padding-top:20px ;
+    padding-left: 700px;
+    font-size: 15px;
+    font-weight: 600;
+
+    color: white;
+    /*background-color: #761c19;*/
+
+}
+.link3{
+    position: absolute;
+    padding-top:20px ;
+    padding-left: 800px;
+    font-size: 15px;
+    font-weight: 600;
+
+    color: white;
+    /*background-color: #761c19;*/
+
+}
+#navlink
+{
+
+    position: absolute;
+    top: 10px;
+    left: 500px;
+}
+.notification
+{
+
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    top: 20px;
+    right: 100px;
+    background-color: white;
+    border-radius: 50%;
+    font-size: 15px;
+
+
+}
+.bell{
+    /* border: 2px solid black;*/
+    position: relative;
+    display: inline-block;
+    font-size: 15px;
+    top:4px;
+    right: 2px;
+    bottom: 3px;
+    left: 4px;
+}
+#techBtn1
+{
+    background: transparent;
+    position: absolute;
+    height: 50px;
+    width: 60px;
+    top:5px;
+    right: 300px;
+    font-size: 0.6em;
+    outline: none;
+}
+.course
+{
+    position: absolute;
+    top: 13px;
+    right: 5px;
+    bottom: 0px;
+    left: 0px;
+    font-size: 25px;
+    color:white ;
+
+}
+#course-menu
+{
+    position: fixed;
+    top: 0px;
+    right: 50px;
+    width: 25%;
+    height: 30%;
+    z-index: 10001;
+    overflow: auto;
+    overflow-y: auto;
+}
+#course-content
+{
+    height: 100%;
+}
+#announce
+{
+    position: absolute;
+
+    top: 30px;
+    left: 10px;
+    font-size: 25px;
+
+}
+#check-post
+{
+    position: fixed;
+    top: 28px;
+    left: 45px;
+    /* border: 3px solid black;*/
+    font-size: 20px;
+}
+#assignment
+{
+    position: absolute;
+    top: 80px;
+    left: 10px;
+    font-size: 25px;
+}
+.checker
+{
+    position: fixed;
+    top: 80px;
+    left: 45px;
+    /* border: 3px solid black;*/
+    font-size: 20px;
+}
+.course-name
+{
+    color: white;
+    /* border: 3px solid red;*/
+    height: 100px;
+    width: 300px;
+    position: absolute;
+    text-align: center;
+    top: 150px;
+    font-size: 20px;
+    font-weight: 700;
+    right: 40%;
+}
+
+
